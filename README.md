@@ -1,4 +1,4 @@
-# ORBIT — AI Opportunity & Growth Agent
+# ORBIT AI Opportunity & Growth Agent
 
 ORBIT helps students find opportunities (hackathons, internships, research, volunteering), check how well they fit, and turn the gaps into a skill roadmap. An AI model explains the results, and **a human approves every step**. ORBIT never submits an application on anyone's behalf.
 
@@ -6,14 +6,14 @@ ORBIT helps students find opportunities (hackathons, internships, research, volu
 
 ## Features
 
-- **Student analysis** — enter your academic year, skills, interest category and weekly hours; ORBIT matches opportunities, lists missing skills and drafts a roadmap.
-- **MCP tools** — opportunity search, eligibility check and roadmap generation are exposed as [FastMCP](https://gofastmcp.com) tools that the workflow calls.
-- **AI explanations** — Gemini (default) or OpenAI explains each match, with an honest fallback when the AI is unavailable.
-- **Human-in-the-loop approvals** — every proposed roadmap becomes a pending request. It can only be used after the student approves it, and each decision is audited.
-- **Verified real opportunities** — a curated catalog of official pages (MLH Global Hack Week, Outreachy, Google Summer of Code). Status is deliberately conservative: a reachable page is *not* treated as proof that registration is open.
-- **Live freshness checks** — on-demand checks against an allowlist of organizer sites only.
-- **Application packets** — prepare and review application material, then hand it off for the student to submit themselves.
-- **Access control** — passphrase login, signed session cookies and cross-site request checks.
+- **Student analysis**   enter your academic year, skills, interest category and weekly hours; ORBIT matches opportunities, lists missing skills and drafts a roadmap.
+- **MCP tools**   opportunity search, eligibility check and roadmap generation are exposed as [FastMCP](https://gofastmcp.com) tools that the workflow calls.
+- **AI explanations**   Gemini (default) or OpenAI explains each match, with an honest fallback when the AI is unavailable.
+- **Human-in-the-loop approvals**   every proposed roadmap becomes a pending request. It can only be used after the student approves it, and each decision is audited.
+- **Verified real opportunities**   a curated catalog of official pages (MLH Global Hack Week, Outreachy, Google Summer of Code). Status is deliberately conservative: a reachable page is *not* treated as proof that registration is open.
+- **Live freshness checks**   on-demand checks against an allowlist of organizer sites only.
+- **Application packets**   prepare and review application material, then hand it off for the student to submit themselves.
+- **Access control**   passphrase login, signed session cookies and cross-site request checks.
 
 ## Tech stack
 
