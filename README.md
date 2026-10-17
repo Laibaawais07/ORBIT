@@ -83,11 +83,6 @@ ORBIT_COOKIE_SECURE=false
 | `ORBIT_DB_PATH` | No | SQLite path for approvals (default `data/orbit.sqlite3`) |
 | `ORBIT_APPLICATION_DB_PATH` | No | SQLite path for application packets |
 
-Generate a token (PowerShell):
-
-```powershell
-[Convert]::ToBase64String((1..32 | ForEach-Object { Get-Random -Maximum 256 }))
-```
 
 ### 3. Run
 
@@ -97,24 +92,7 @@ uvicorn backend.main:app --reload --port 8000
 
 Open <http://localhost:8000>, sign in with your `ORBIT_ACCESS_TOKEN`, and use the app at `/app`. Interactive API docs are at `/docs` after you log in.
 
-## API overview
 
-| Method | Endpoint | Purpose |
-|---|---|---|
-| GET | `/health` | Health check (no login required) |
-| POST | `/api/analyze` | Analyze a student profile |
-| POST / GET | `/api/approvals` | Create / list approval requests |
-| GET | `/api/approvals/{id}` | Get one approval request |
-| POST | `/api/approvals/{id}/decide` | Approve or reject a roadmap |
-| GET | `/api/approvals/{id}/approved-roadmap` | Read the roadmap (only if approved) |
-| GET | `/api/approvals/{id}/audit` | Audit trail |
-| GET | `/api/opportunities/real` | Curated official opportunities |
-| GET | `/api/opportunities/live-check` | Freshness check of allowlisted sources |
-| POST | `/api/applications/draft` | Draft an application packet |
-| POST | `/api/applications/{id}/handoff` | Hand a packet off to the student |
-| GET | `/api/agent/status`, POST `/api/agent/run` | Agent endpoints |
-
-Non-public endpoints require a valid session cookie or an `Authorization: Bearer <ORBIT_ACCESS_TOKEN>` header.
 
 ## Tests
 
@@ -132,16 +110,3 @@ docker run -p 8000:8000 --env-file .env orbit
 
 The image listens on `$PORT` (default `8000`).
 
-## Deployment notes
-
-- Set the environment variables above in your host's settings. **Do not commit or upload `.env`.**
-- Make sure the host's exposed port matches the `PORT` the app listens on.
-- SQLite data is stored in `data/`. Attach a persistent volume mounted at `/app/data`, or data is lost on redeploy.
-- All users who know the passphrase share one AI key and one dataset, so set a spending limit on your AI account.
-
-## Safety principles
-
-- No application is ever submitted automatically.
-- Official sources are curated, and eligibility is never claimed from skills alone.
-- Roadmaps need explicit student approval before use.
-- Secrets are read from environment variables and are never logged.
